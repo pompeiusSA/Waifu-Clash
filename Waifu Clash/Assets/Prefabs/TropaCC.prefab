@@ -179,4 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06251851b84dc7b45a30934d9a30323a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tropas
-  vel: 2
+  velMax: 2

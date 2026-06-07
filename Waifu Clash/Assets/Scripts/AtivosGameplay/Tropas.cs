@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tropas : MonoBehaviour
@@ -6,7 +8,9 @@ public class Tropas : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public float vel;
+    private float vel;
+
+    public float velMax;
 
     bool isInimigoProximo;
 
@@ -20,7 +24,7 @@ public class Tropas : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        vel = velMax;
     }
 
     // Update is called once per frame
@@ -65,11 +69,18 @@ public class Tropas : MonoBehaviour
                 transform.right = obj.transform.position - transform.position;
 
                 transform.position = Vector2.MoveTowards(transform.position, obj.transform.position, vel * Time.deltaTime);
+
+                if (distancia <= 1)
+                {
+                    vel = 0;
+                }
             }
         }
         else
         {
             isInimigoProximo = false;
+
+            vel = velMax;
         }
     }
 }
