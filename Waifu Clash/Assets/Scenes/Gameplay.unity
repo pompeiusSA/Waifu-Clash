@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 154933811}
   m_Layer: 5
   m_Name: botaoTropaCC
-  m_TagString: cima
+  m_TagString: TropaCC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,7 +280,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 154933812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098956829}
+        m_TargetAssemblyTypeName: TropasBotao, Assembly-CSharp
+        m_MethodName: comprandoTropa
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 154933809}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &154933812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,11 +897,11 @@ Transform:
   m_GameObject: {fileID: 472536754}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.375, z: -10}
+  m_LocalScale: {x: 0.05, y: 0.025, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1113336336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1025,7 +1037,9 @@ Transform:
   m_LocalPosition: {x: 0, y: -15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1072803464}
+  - {fileID: 952018184}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
@@ -1065,7 +1079,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000e9b9e06325a25d57
+  m_ApplyToSortingLayers: 00000000e9b9e06325a25d57a1da10a6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1608,6 +1622,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870500474}
   m_CullTransparentMesh: 1
+--- !u!1 &952018183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952018184}
+  - component: {fileID: 952018185}
+  m_Layer: 0
+  m_Name: LimiteSpawn-X
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &952018184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952018183}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.44, y: -0.10999966, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &952018185
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952018183}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.18926048}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 10.314093}
+  m_EdgeRadius: 0
 --- !u!1 &977484878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1781,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977484878}
   m_CullTransparentMesh: 1
+--- !u!1 &1072803462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072803464}
+  - component: {fileID: 1072803463}
+  m_Layer: 0
+  m_Name: LimiteSpawnX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1072803463
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072803462}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 2.6295872}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 10.13204}
+  m_EdgeRadius: 0
+--- !u!4 &1072803464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072803462}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.44, y: -2.2999992, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095034792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +2083,9 @@ Transform:
   m_Children:
   - {fileID: 853938351}
   - {fileID: 202210098}
+  - {fileID: 1866735303}
+  - {fileID: 1533847346}
+  - {fileID: 472536755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1136049300
@@ -2417,7 +2590,7 @@ GameObject:
   - component: {fileID: 1505205494}
   m_Layer: 5
   m_Name: botaoTropaCA
-  m_TagString: baixo
+  m_TagString: TropaCA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2485,7 +2658,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1505205495}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098956829}
+        m_TargetAssemblyTypeName: TropasBotao, Assembly-CSharp
+        m_MethodName: comprandoTropa
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1505205492}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1505205495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,10 +2810,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.025, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1113336336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1736713178
 GameObject:
@@ -2643,8 +2828,8 @@ GameObject:
   - component: {fileID: 1736713181}
   - component: {fileID: 1736713180}
   m_Layer: 5
-  m_Name: botaoTropaAC
-  m_TagString: baixo
+  m_Name: botaoTropaDC
+  m_TagString: TropaDC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2712,7 +2897,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1736713181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098956829}
+        m_TargetAssemblyTypeName: TropasBotao, Assembly-CSharp
+        m_MethodName: comprandoTropa
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1736713178}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1736713181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2765,7 +2962,7 @@ GameObject:
   - component: {fileID: 1766827395}
   m_Layer: 5
   m_Name: botaoTropaAD
-  m_TagString: meio
+  m_TagString: TropaAD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2833,7 +3030,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1766827396}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2098956829}
+        m_TargetAssemblyTypeName: TropasBotao, Assembly-CSharp
+        m_MethodName: comprandoTropa
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1766827393}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1766827396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2976,11 +3185,11 @@ Transform:
   m_GameObject: {fileID: 1866735302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.375, z: -10}
+  m_LocalScale: {x: 0.05, y: 0.025, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1113336336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087263908
 GameObject:
@@ -3071,6 +3280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098956828}
   - component: {fileID: 2098956827}
+  - component: {fileID: 2098956829}
   m_Layer: 0
   m_Name: Game_Controller
   m_TagString: Untagged
@@ -3090,7 +3300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4a6db7e002624baa72806933475c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
-  dispositivoAtual: 1
+  dispositivoAtual: 0
   posBases:
   - {fileID: 202210098}
   - {fileID: 853938351}
@@ -3111,11 +3321,25 @@ MonoBehaviour:
   molduraWaifu: {fileID: 1526498560}
   posMolduraMobile: {x: 0, y: 600}
   posMolduraPC: {x: 0, y: 150}
+  colisoresCompraSpawn:
+  - {fileID: 1072803464}
+  - {fileID: 952018184}
+  posColisoresSpawnMobile:
+  - {x: 8.44, y: -0.11}
+  - {x: -8.44, y: -0.11}
+  posColisoresSpawnPC:
+  - {x: 2.42, y: -0.11}
+  - {x: -2.42, y: -0.11}
   mainCamera: {fileID: 519420031}
   posicoesCamera:
   - {fileID: 1866735303}
   - {fileID: 1533847346}
   - {fileID: 472536755}
+  quantidadeDinheiroTxt: {fileID: 977484880}
+  dinheiroIncremento: 2
+  dinheiroAtual: 0
+  tropaCC: {fileID: 8036445308325426479, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+  qualTropa: 0
 --- !u!4 &2098956828
 Transform:
   m_ObjectHideFlags: 0
@@ -3131,6 +3355,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098956829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098956826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef353032766034c44aea1f07649304c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TropasBotao
+--- !u!1001 &2396685423513142444
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368972528313229626, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214815524653330021, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
+      propertyPath: m_Name
+      value: Player_Controller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a4be42b0c68d99478d73b26e84a9977, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3139,8 +3432,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 2098956828}
   - {fileID: 1113336336}
-  - {fileID: 1866735303}
-  - {fileID: 1533847346}
-  - {fileID: 472536755}
   - {fileID: 300058029}
+  - {fileID: 2396685423513142444}
   - {fileID: 854628753}

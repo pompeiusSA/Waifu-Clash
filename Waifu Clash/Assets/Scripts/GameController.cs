@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum dispositivo
 {
@@ -19,22 +20,51 @@ public class GameController : MonoBehaviour
 
     public RectTransform molduraWaifu; public Vector2 posMolduraMobile, posMolduraPC;
 
+    public Transform[] colisoresCompraSpawn; public Vector2[] posColisoresSpawnMobile, posColisoresSpawnPC;
+
     [Header("Cenario")]
 
     public Camera mainCamera;
 
     public Transform[] posicoesCamera;
 
+    [Header("Gameplay")]
+
+    public Text quantidadeDinheiroTxt;
+
+    public float dinheiroIncremento;
+
+    public float dinheiroAtual;
+
+    public GameObject tropaCC;
+
+    public int qualTropa;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         adaptandoHUD();
+
+        //Jogo começa com nenhuma tropa selecionada!
+
+        qualTropa = -1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Ganhando dinheiro e registrando
 
+        quantidadeDinheiroTxt.text = Mathf.RoundToInt(dinheiroAtual).ToString();
+
+        dinheiroAtual += dinheiroIncremento * Time.deltaTime;
+
+        //Reiniciando a seleção de personagem caso não tenha dinheiro!
+
+        if (dinheiroAtual <= 0)
+        {
+            qualTropa = -1;
+        }
     }
 
     public void adaptandoHUD()
@@ -57,6 +87,11 @@ public class GameController : MonoBehaviour
             //Ajustando o moldura
 
             molduraWaifu.anchoredPosition = posMolduraMobile;
+
+            //Ajustando colisores
+
+            colisoresCompraSpawn[0].localPosition = posColisoresSpawnMobile[0];
+            colisoresCompraSpawn[1].localPosition = posColisoresSpawnMobile[1];
         }
         else
         {
@@ -74,6 +109,11 @@ public class GameController : MonoBehaviour
             //Ajustando o moldura
 
             molduraWaifu.anchoredPosition = posMolduraPC;
+
+            //Ajustando colisores
+
+            colisoresCompraSpawn[0].localPosition = posColisoresSpawnPC[0];
+            colisoresCompraSpawn[1].localPosition = posColisoresSpawnPC[1];
         }
     }
 
