@@ -11,6 +11,8 @@ TagManager:
   - TropaAD
   - TropaCA
   - TropaDC
+  - inimigo
+  - player
   layers:
   - Default
   - TransparentFX

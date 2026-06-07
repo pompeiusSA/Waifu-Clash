@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 {
     [Header("HUD")]
 
-    [SerializeField] dispositivo dispositivoAtual;
+    public dispositivo dispositivoAtual;
 
     public Transform[] posBases; public Vector2 scaleBasesMobile, scaleBasesPC;
 
@@ -39,6 +39,8 @@ public class GameController : MonoBehaviour
     public GameObject tropaCC;
 
     public int qualTropa;
+
+    public GameObject[] bases; //0 é o player e 1 é o inimigo
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

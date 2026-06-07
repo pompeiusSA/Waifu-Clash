@@ -1205,6 +1205,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789829962}
   m_CullTransparentMesh: 1
+--- !u!1001 &844311188
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.047943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036445308325426479, guid: 31213112d848bd440a01963a557e9772, type: 3}
+      propertyPath: m_Name
+      value: TropaCC 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31213112d848bd440a01963a557e9772, type: 3}
 --- !u!1 &851550921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1705,7 @@ Transform:
   m_GameObject: {fileID: 952018183}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.44, y: -0.10999966, z: 100}
+  m_LocalPosition: {x: -8.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1688,7 +1745,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.18926048}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1698,8 +1755,65 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 10.314093}
+  m_Size: {x: 1, y: 20}
   m_EdgeRadius: 0
+--- !u!1001 &967230275
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.85144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508577989387966743, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036445308325426479, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
+      propertyPath: m_Name
+      value: TropaCC
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
 --- !u!1 &977484878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1946,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 2.6295872}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1842,7 +1956,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 10.13204}
+  m_Size: {x: 1, y: 20}
   m_EdgeRadius: 0
 --- !u!4 &1072803464
 Transform:
@@ -1853,7 +1967,7 @@ Transform:
   m_GameObject: {fileID: 1072803462}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.44, y: -2.2999992, z: 100}
+  m_LocalPosition: {x: 8.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3300,7 +3414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c4a6db7e002624baa72806933475c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
-  dispositivoAtual: 0
+  dispositivoAtual: 1
   posBases:
   - {fileID: 202210098}
   - {fileID: 853938351}
@@ -3325,11 +3439,11 @@ MonoBehaviour:
   - {fileID: 1072803464}
   - {fileID: 952018184}
   posColisoresSpawnMobile:
-  - {x: 8.44, y: -0.11}
-  - {x: -8.44, y: -0.11}
+  - {x: 2.4, y: 0}
+  - {x: -2.4, y: 0}
   posColisoresSpawnPC:
-  - {x: 2.42, y: -0.11}
-  - {x: -2.42, y: -0.11}
+  - {x: 8.5, y: 0}
+  - {x: -8.5, y: 0}
   mainCamera: {fileID: 519420031}
   posicoesCamera:
   - {fileID: 1866735303}
@@ -3337,9 +3451,12 @@ MonoBehaviour:
   - {fileID: 472536755}
   quantidadeDinheiroTxt: {fileID: 977484880}
   dinheiroIncremento: 2
-  dinheiroAtual: 0
+  dinheiroAtual: 100
   tropaCC: {fileID: 8036445308325426479, guid: ac933b26f75420a4d8b2367a2bc62ca4, type: 3}
   qualTropa: 0
+  bases:
+  - {fileID: 853938350}
+  - {fileID: 202210097}
 --- !u!4 &2098956828
 Transform:
   m_ObjectHideFlags: 0
@@ -3435,3 +3552,5 @@ SceneRoots:
   - {fileID: 300058029}
   - {fileID: 2396685423513142444}
   - {fileID: 854628753}
+  - {fileID: 844311188}
+  - {fileID: 967230275}
