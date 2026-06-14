@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8217201628696727615}
   - component: {fileID: -7594535161250860703}
   m_Layer: 0
-  m_Name: TropaCC 1
+  m_Name: TropaCC INIMIGO
   m_TagString: inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
