@@ -20,9 +20,13 @@ public class Tropas : MonoBehaviour
 
     public GameObject colisorAtaque;
 
-    bool isAtacando = false;
+    [SerializeField] bool isAtacando = false;
 
     public float minhaVida;
+
+    [SerializeField] bool isBasePerto = false;
+
+    float distMin = Mathf.Infinity;
 
     void Awake()
     {
@@ -52,22 +56,60 @@ public class Tropas : MonoBehaviour
     {
         if (this.gameObject.tag == "player")
         {
-            if (isInimigoProximo == false)
+            if (_gameController.bases[1] != null)
             {
-                transform.right = _gameController.bases[1].transform.position - transform.position;
+                if (isInimigoProximo == false && isBasePerto == false)
+                {
+                    transform.right = _gameController.bases[1].transform.position - transform.position;
 
-                transform.position = Vector2.MoveTowards(transform.position, _gameController.bases[1].transform.position, vel * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, _gameController.bases[1].transform.position, vel * Time.deltaTime);
+                }
+
+                float distBase = Vector2.Distance(transform.position, _gameController.bases[1].transform.position);
+
+                if (distBase <= 3)
+                {
+                    isBasePerto = true;
+
+                    if (isAtacando == false)
+                    {
+                        atacandoBases();
+                    }
+                }
+            }
+            else
+            {
+                StopCoroutine("ataqueDelayBases");
             }
 
             existeInimigo("inimigo");
         }
         else
         {
-            if (isInimigoProximo == false)
+            if (_gameController.bases[0] != null)
             {
-                transform.right = _gameController.bases[0].transform.position - transform.position;
+                if (isInimigoProximo == false && isBasePerto == false)
+                {
+                    transform.right = _gameController.bases[0].transform.position - transform.position;
 
-                transform.position = Vector2.MoveTowards(transform.position, _gameController.bases[0].transform.position, vel * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, _gameController.bases[0].transform.position, vel * Time.deltaTime);
+                }
+
+                float distBase = Vector2.Distance(transform.position, _gameController.bases[0].transform.position);
+
+                if (distBase <= 2)
+                {
+                    isBasePerto = true;
+
+                    if (isAtacando == false)
+                    {
+                        atacandoBases();
+                    }
+                }
+            }
+            else
+            {
+                StopCoroutine("ataqueDelayBases");
             }
 
             existeInimigo("player");
@@ -78,87 +120,148 @@ public class Tropas : MonoBehaviour
     {
         inimigos = new List<GameObject>(GameObject.FindGameObjectsWithTag(tag));
 
-        if (inimigoAlvo == null)
+        if (isBasePerto == false) //PEGANDO INIMIGO
         {
-            isInimigoProximo = false;
-            vel = velMax;
-
-            for (int i = 0; i < inimigos.Count; i++)
+            if (inimigoAlvo == null)
             {
-                if (Vector2.Distance(transform.position, inimigos[i].transform.position) <= 10)
+                isInimigoProximo = false;
+
+                vel = velMax;
+
+                isAtacando = false;
+
+                distMin = Mathf.Infinity;
+
+                for (int i = 0; i < inimigos.Count; i++)
                 {
-                    inimigoAlvo = inimigos[i];
+                    if (Vector2.Distance(transform.position, inimigos[i].transform.position) <= 10 && Vector2.Distance(transform.position, inimigos[i].transform.position) <= distMin)
+                    {
+                        distMin = Vector2.Distance(transform.position, inimigos[i].transform.position);
+
+                        inimigoAlvo = inimigos[i];
+                    }
                 }
             }
+            else //ATACANDO INIMIGO
+            {
+                if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 10)
+                {
+                    isInimigoProximo = true;
+
+                    if (inimigoAlvo != null)
+                    {
+                        transform.right = inimigoAlvo.transform.position - transform.position;
+
+                        transform.position = Vector2.MoveTowards(transform.position, inimigoAlvo.transform.position, vel * Time.deltaTime);
+
+                        if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 1)
+                        {
+                            vel = 0;
+
+                            if (isAtacando == false)
+                            {
+                                atacandoInimigos();
+                            }
+                        }
+                        else
+                        {
+                            vel = velMax;
+
+                            isAtacando = false;
+
+                            distMin = Mathf.Infinity;
+
+                            StopCoroutine("ataqueDelayInimigos");
+                        }
+                    }
+                }
+                else
+                {
+                    isInimigoProximo = false;
+
+                    isAtacando = false;
+                }
+            }
+        }
+    }
+
+    void atacandoInimigos()
+    {
+        isAtacando = true;
+        StartCoroutine("ataqueDelayInimigos");
+    }
+
+    IEnumerator ataqueDelayInimigos()
+    {
+        if (_gameController.bases[0] != null && _gameController.bases[1] != null)
+        {
+            yield return new WaitForSeconds(_gameController.delayDanoCC);
+
+            if (inimigoAlvo != null)
+            {
+                switch (inimigoAlvo.gameObject.tag)
+                {
+                    case "player":
+
+                        inimigoAlvo.gameObject.GetComponent<Tropas>().minhaVida -= 10;
+
+                        break;
+
+
+                    case "inimigo":
+
+                        inimigoAlvo.gameObject.GetComponent<Tropas>().minhaVida -= 9;
+
+                        break;
+                }
+            }
+
+            yield return new WaitForSeconds(_gameController.delayDanoCC);
+
+            StartCoroutine("ataqueDelayInimigos");
         }
         else
         {
-            if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 10) //Ataco inimigo
-            {
-                isInimigoProximo = true;
-
-                if (inimigoAlvo != null)
-                {
-                    transform.right = inimigoAlvo.transform.position - transform.position;
-
-                    transform.position = Vector2.MoveTowards(transform.position, inimigoAlvo.transform.position, vel * Time.deltaTime);
-
-                    if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 1)
-                    {
-                        vel = 0;
-
-                        if (isAtacando == false)
-                        {
-                            atacando();
-                        }
-                    }
-                    else
-                    {
-                        vel = velMax;
-
-                        StopCoroutine("ataqueDelay");
-                    }
-                }
-            }
-            else
-            {
-                isInimigoProximo = false;
-            }
+            StopCoroutine("ataqueDelayInimigos");
         }
     }
 
-    void atacando()
+    void atacandoBases()
     {
         isAtacando = true;
-        StartCoroutine("ataqueDelay");
+        StartCoroutine("ataqueDelayBases");
     }
 
-    IEnumerator ataqueDelay()
+    IEnumerator ataqueDelayBases()
     {
         yield return new WaitForSeconds(_gameController.delayDanoCC);
 
-        if (inimigoAlvo != null)
+        switch (this.gameObject.tag)
         {
-            switch (inimigoAlvo.gameObject.tag)
-            {
-                case "player":
+            case "player":
 
-                    inimigoAlvo.gameObject.GetComponent<Tropas>().minhaVida -= 10;
+                if (_gameController.bases[1] != null)
 
-                    break;
+                {
+                    _gameController.bases[1].gameObject.GetComponent<Base>().minhaVidaBase -= 10;
+                }
 
+                break;
 
-                case "inimigo":
+            case "inimigo":
 
-                    inimigoAlvo.gameObject.GetComponent<Tropas>().minhaVida -= 9;
+                if (_gameController.bases[0] != null)
 
-                    break;
-            }
+                {
+                    _gameController.bases[0].gameObject.GetComponent<Base>().minhaVidaBase -= 10;
+                }
+
+                break;
         }
 
         yield return new WaitForSeconds(_gameController.delayDanoCC);
 
-        StartCoroutine("ataqueDelay");
+        StartCoroutine("ataqueDelayBases");
     }
 }
 

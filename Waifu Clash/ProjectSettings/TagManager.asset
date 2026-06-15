@@ -13,6 +13,8 @@ TagManager:
   - TropaDC
   - inimigo
   - player
+  - baseInimiga
+  - basePlayer
   layers:
   - Default
   - TransparentFX
