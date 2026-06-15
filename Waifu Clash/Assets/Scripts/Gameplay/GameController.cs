@@ -42,6 +42,10 @@ public class GameController : MonoBehaviour
 
     public GameObject[] bases; //0 é o player e 1 é o inimigo
 
+    [Header("Tropas")]
+
+    public float delayDanoCC;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

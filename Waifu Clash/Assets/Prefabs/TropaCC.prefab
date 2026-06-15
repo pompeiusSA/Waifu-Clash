@@ -180,3 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tropas
   velMax: 2
+  inimigos: []
+  colisorAtaque: {fileID: 0}
+  minhaVida: 20

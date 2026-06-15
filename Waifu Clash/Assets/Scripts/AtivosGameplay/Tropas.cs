@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,12 @@ public class Tropas : MonoBehaviour
 
     [SerializeField] List<GameObject> inimigos = new List<GameObject>();
 
+    public GameObject colisorAtaque;
+
+    bool isAtacando = false;
+
+    public float minhaVida;
+
     void Awake()
     {
         _gameController = FindAnyObjectByType(typeof(GameController)) as GameController;
@@ -32,6 +39,16 @@ public class Tropas : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        seguindoBase();
+
+        if (minhaVida <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    void seguindoBase()
     {
         if (this.gameObject.tag == "player")
         {
@@ -89,10 +106,17 @@ public class Tropas : MonoBehaviour
                     if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 1)
                     {
                         vel = 0;
+
+                        if (isAtacando == false)
+                        {
+                            atacando();
+                        }
                     }
                     else
                     {
                         vel = velMax;
+
+                        StopCoroutine("ataqueDelay");
                     }
                 }
             }
@@ -101,6 +125,40 @@ public class Tropas : MonoBehaviour
                 isInimigoProximo = false;
             }
         }
+    }
+
+    void atacando()
+    {
+        isAtacando = true;
+        StartCoroutine("ataqueDelay");
+    }
+
+    IEnumerator ataqueDelay()
+    {
+        yield return new WaitForSeconds(_gameController.delayDanoCC);
+
+        if (inimigoAlvo != null)
+        {
+            switch (inimigoAlvo.gameObject.tag)
+            {
+                case "player":
+
+                    inimigoAlvo.gameObject.GetComponent<Tropas>().minhaVida -= 10;
+
+                    break;
+
+
+                case "inimigo":
+
+                    inimigoAlvo.gameObject.GetComponent<Tropas>().minhaVida -= 9;
+
+                    break;
+            }
+        }
+
+        yield return new WaitForSeconds(_gameController.delayDanoCC);
+
+        StartCoroutine("ataqueDelay");
     }
 }
 
