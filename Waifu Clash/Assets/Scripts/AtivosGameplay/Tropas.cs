@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tropas : MonoBehaviour
@@ -15,10 +13,9 @@ public class Tropas : MonoBehaviour
 
     bool isInimigoProximo;
 
-    [SerializeField] List<GameObject> inimigos = new List<GameObject>();
-    [SerializeField] List<Vector2> posicoesInimigos = new List<Vector2>();
+    GameObject inimigoAlvo = null;
 
-    [SerializeField] List<float> distancias = new List<float>();
+    [SerializeField] List<GameObject> inimigos = new List<GameObject>();
 
     void Awake()
     {
@@ -45,8 +42,6 @@ public class Tropas : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, _gameController.bases[1].transform.position, vel * Time.deltaTime);
             }
 
-            //ExisteObjetoComTag("inimigo");
-
             existeInimigo("inimigo");
         }
         else
@@ -58,37 +53,7 @@ public class Tropas : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, _gameController.bases[0].transform.position, vel * Time.deltaTime);
             }
 
-            //ExisteObjetoComTag("player");
-        }
-    }
-
-    private void ExisteObjetoComTag(string tag)
-    {
-        GameObject obj = GameObject.FindGameObjectWithTag(tag);
-
-        if (obj != null)
-        {
-            float distancia = Vector2.Distance(transform.position, obj.transform.position);
-
-            if (distancia <= 10)
-            {
-                isInimigoProximo = true;
-
-                transform.right = obj.transform.position - transform.position;
-
-                transform.position = Vector2.MoveTowards(transform.position, obj.transform.position, vel * Time.deltaTime);
-
-                if (distancia <= 1)
-                {
-                    vel = 0;
-                }
-            }
-        }
-        else
-        {
-            isInimigoProximo = false;
-
-            vel = velMax;
+            existeInimigo("player");
         }
     }
 
@@ -96,16 +61,46 @@ public class Tropas : MonoBehaviour
     {
         inimigos = new List<GameObject>(GameObject.FindGameObjectsWithTag(tag));
 
-        posicoesInimigos.Clear();
-        distancias.Clear();
-
-        foreach (var inimigo in inimigos)
+        if (inimigoAlvo == null)
         {
-            posicoesInimigos.Add(inimigo.transform.position);
+            isInimigoProximo = false;
+            vel = velMax;
 
-            distancias.Add(Vector2.Distance(transform.position, inimigo.transform.position));
+            for (int i = 0; i < inimigos.Count; i++)
+            {
+                if (Vector2.Distance(transform.position, inimigos[i].transform.position) <= 10)
+                {
+                    inimigoAlvo = inimigos[i];
+                }
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 10) //Ataco inimigo
+            {
+                isInimigoProximo = true;
+
+                if (inimigoAlvo != null)
+                {
+                    transform.right = inimigoAlvo.transform.position - transform.position;
+
+                    transform.position = Vector2.MoveTowards(transform.position, inimigoAlvo.transform.position, vel * Time.deltaTime);
+
+                    if (Vector2.Distance(transform.position, inimigoAlvo.transform.position) <= 1)
+                    {
+                        vel = 0;
+                    }
+                    else
+                    {
+                        vel = velMax;
+                    }
+                }
+            }
+            else
+            {
+                isInimigoProximo = false;
+            }
         }
     }
-
 }
 
