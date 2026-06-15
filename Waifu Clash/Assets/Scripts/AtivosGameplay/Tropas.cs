@@ -24,7 +24,7 @@ public class Tropas : MonoBehaviour
 
     public float minhaVida;
 
-    [SerializeField] bool isBasePerto = false;
+    private bool isBasePerto = false;
 
     float distMin = Mathf.Infinity;
 
@@ -67,14 +67,18 @@ public class Tropas : MonoBehaviour
 
                 float distBase = Vector2.Distance(transform.position, _gameController.bases[1].transform.position);
 
-                if (distBase <= 3)
+                if (distBase <= 2)
                 {
-                    isBasePerto = true;
-
                     if (isAtacando == false)
                     {
                         atacandoBases();
                     }
+                }
+                else
+                {
+                    isBasePerto = false;
+                    isAtacando = false;
+                    StopCoroutine("ataqueDelayBases");
                 }
             }
             else
@@ -99,12 +103,16 @@ public class Tropas : MonoBehaviour
 
                 if (distBase <= 2)
                 {
-                    isBasePerto = true;
-
                     if (isAtacando == false)
                     {
                         atacandoBases();
                     }
+                }
+                else
+                {
+                    isBasePerto = false;
+                    isAtacando = false;
+                    StopCoroutine("ataqueDelayBases");
                 }
             }
             else
@@ -226,8 +234,9 @@ public class Tropas : MonoBehaviour
         }
     }
 
-    void atacandoBases()
+    public void atacandoBases()
     {
+        isBasePerto = true;
         isAtacando = true;
         StartCoroutine("ataqueDelayBases");
     }
