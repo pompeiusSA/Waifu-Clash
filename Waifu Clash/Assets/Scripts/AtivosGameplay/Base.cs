@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Base : MonoBehaviour
         if (minhaVidaBase <= 0)
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene("Menu");
         }
     }
 

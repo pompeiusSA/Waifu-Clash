@@ -54,6 +54,8 @@ public class GameController : MonoBehaviour
         //Jogo começa com nenhuma tropa selecionada!
 
         qualTropa = -1;
+
+
     }
 
     // Update is called once per frame
@@ -71,6 +73,8 @@ public class GameController : MonoBehaviour
         {
             qualTropa = -1;
         }
+
+
     }
 
     public void adaptandoHUD()
