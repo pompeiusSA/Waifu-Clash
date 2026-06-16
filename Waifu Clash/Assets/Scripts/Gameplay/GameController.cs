@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,6 +47,10 @@ public class GameController : MonoBehaviour
 
     public float delayDanoCC;
 
+    public GameObject tropaInimigaCC;
+
+    public Transform[] spawnTropasInimigas;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -55,7 +60,7 @@ public class GameController : MonoBehaviour
 
         qualTropa = -1;
 
-
+        StartCoroutine("spanwandoTropas");
     }
 
     // Update is called once per frame
@@ -75,6 +80,15 @@ public class GameController : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator spanwandoTropas()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 5));
+
+        Instantiate(tropaInimigaCC, new Vector2(Random.Range(spawnTropasInimigas[0].position.x, spawnTropasInimigas[1].position.x), 17), transform.localRotation);
+
+        StartCoroutine("spanwandoTropas");
     }
 
     public void adaptandoHUD()
